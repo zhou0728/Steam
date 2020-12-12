@@ -22,8 +22,7 @@ public class AlipayController {
     @Autowired
     Alipay alipay;
 
-    @Autowired
-//    BookService bookService;
+
 
     @RequestMapping(value = "/pay",method = RequestMethod.POST)
     public void pay(HttpServletRequest request, HttpServletResponse response, @RequestBody Map map) throws ServletException, IOException {
