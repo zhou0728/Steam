@@ -16,8 +16,8 @@ spring:
     # JavaMailSender 邮件发送的配置
   mail:
     host: smtp.qq.com
-    username: 1942890632@qq.com
-    password: ttqkxrzzsbicciag
+    username:
+    password:
     properties:
       mail:
         smtp:
