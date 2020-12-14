@@ -15,9 +15,12 @@ public class MyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Cookie[] cookies = request.getCookies();
         String name = null;
+
+        System.out.println("cookies = " + cookies);
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("token")){
                 name = cookie.getValue();
+                System.out.println("============="+name);
             }
         }
         // TODO 利用 redis 进行存储

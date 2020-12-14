@@ -2,6 +2,7 @@ package com.qf;
 
 
 import com.qf.common.ResultResp;
+import com.qf.dao.GameMapper;
 import com.qf.pojo.Game;
 import com.qf.service.impl.GameServiceImpl;
 import org.junit.Test;
@@ -19,6 +20,9 @@ public class TestGame {
     @Autowired
     GameServiceImpl gameServiceImpl;
 
+    @Autowired
+    GameMapper gameMapper;
+
     @Test
     public void testFindAll(){
 
@@ -27,6 +31,12 @@ public class TestGame {
         List<Game> data =(List<Game>) all.getData();
 
         System.out.println("data = " + data);
+    }
+
+    @Test
+    public void testFindOne(){
+        Game one = gameMapper.findOne(8);
+        System.out.println("one = " + one);
     }
 
 }

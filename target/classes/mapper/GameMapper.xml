@@ -22,5 +22,8 @@
         select <include refid="baseSql"></include> from game
     </select>
 
+    <select id="findOne" resultMap="baseMap">
+        select <include refid="baseSql"></include> from game where id = #{id}
+    </select>
 
 </mapper>

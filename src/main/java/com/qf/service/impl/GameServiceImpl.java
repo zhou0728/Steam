@@ -31,4 +31,23 @@ public class GameServiceImpl implements GameService {
         resultResp.setMessage("findAll查询全部成功！");
         return resultResp;
     }
+
+    @Override
+    public ResultResp findOne(Integer id) {
+        ResultResp resultResp = new ResultResp();
+        if (id != null && !(id.toString().equals(""))){
+            Game game = gameMapper.findOne(id);
+            if (game != null){
+                resultResp.setCode(200);
+                resultResp.setData(game);
+                resultResp.setMessage("查询一个成功！！");
+                return resultResp;
+            }
+            resultResp.setCode(202);
+            resultResp.setMessage("没有找到id="+id);
+            return resultResp;
+        }
+        resultResp.setCode(201);
+        return resultResp;
+    }
 }
