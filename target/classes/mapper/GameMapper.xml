@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.GameMapper">
+
+    <resultMap id="baseMap" type="game">
+        <id column="id" property="id"/>
+        <result column="g_name" property="gName"/>
+        <result column="g_alias" property="gAlias"/>
+        <result column="g_price" property="gPrice"/>
+        <result column="g_appraisal" property="gAppraisal"/>
+        <result column="g_des" property="gDes"/>
+        <result column="g_pic" property="gPic"/>
+    </resultMap>
+
+    <sql id="baseSql">
+        id,g_name,g_alias,g_price,g_appraisal,g_des,g_pic
+    </sql>
+
+    <select id="findAll" resultMap="baseMap">
+        select <include refid="baseSql"></include> from game
+    </select>
+
+
+</mapper>

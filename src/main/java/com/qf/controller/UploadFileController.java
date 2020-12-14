@@ -20,4 +20,7 @@ public class UploadFileController {
     public ResultResp uploadFile(@RequestParam("file") MultipartFile file){
         return uploadFile.uploadFile(file);
     }
+
+
+
 }
