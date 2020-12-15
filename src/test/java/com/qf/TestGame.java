@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -19,6 +20,9 @@ public class TestGame {
 
     @Autowired
     GameServiceImpl gameServiceImpl;
+
+    @Autowired
+    RedisTemplate redisTemplate;
 
     @Autowired
     GameMapper gameMapper;
@@ -37,6 +41,13 @@ public class TestGame {
     public void testFindOne(){
         Game one = gameMapper.findOne(8);
         System.out.println("one = " + one);
+    }
+
+    @Test
+    public void testRedis(){
+        Object o =  redisTemplate.opsForValue().get("123");
+//        redisTemplate.opsForValue().set("123","张三");
+        System.out.println("members = " + o);
     }
 
 }

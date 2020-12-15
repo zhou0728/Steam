@@ -1,6 +1,7 @@
 package com.qf.config;
 
 import com.qf.interceptor.MyInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -12,11 +13,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
+    @Bean
+    public MyInterceptor getInterceptor() {
+        return new MyInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MyInterceptor())
-                .addPathPatterns("/e/findOne/**")
+        registry.addInterceptor(getInterceptor())
+                .addPathPatterns("/game/addShopCart/**")
                 .excludePathPatterns("/user/**");
 
     }
+
+
 }

@@ -10,6 +10,8 @@ import com.qf.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
@@ -49,5 +51,23 @@ public class GameServiceImpl implements GameService {
         }
         resultResp.setCode(201);
         return resultResp;
+    }
+
+    @Override
+    public ResultResp addShopCart(Integer id, HttpServletRequest request) {
+        String key = "";
+
+        return null;
+    }
+
+
+    public String getToken(HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if (cookie.equals("token")){
+                return cookie.getValue();
+            }
+        }
+        return null;
     }
 }

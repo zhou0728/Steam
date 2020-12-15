@@ -6,6 +6,7 @@ import com.qf.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
@@ -22,8 +23,12 @@ public class GameController {
 
     @RequestMapping(value = "/findOne",method = RequestMethod.POST)
     public ResultResp findOne(@RequestBody Map map){
-
         return gameService.findOne((Integer) map.get("id"));
+    }
+
+    @RequestMapping(value = "/addShopCart",method = RequestMethod.POST)
+    public ResultResp addShopCart(@RequestBody Map map, HttpServletRequest request){
+        return gameService.addShopCart((Integer) map.get("id"));
     }
 
 }
