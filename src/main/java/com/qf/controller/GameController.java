@@ -28,7 +28,7 @@ public class GameController {
 
     @RequestMapping(value = "/addShopCart",method = RequestMethod.POST)
     public ResultResp addShopCart(@RequestBody Map map, HttpServletRequest request){
-        return gameService.addShopCart((Integer) map.get("id"));
+        return gameService.addShopCart((Integer) map.get("id"), request);
     }
 
 }
